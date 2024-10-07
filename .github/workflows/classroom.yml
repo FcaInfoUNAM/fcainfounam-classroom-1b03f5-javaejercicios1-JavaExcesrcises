@@ -18,7 +18,10 @@ jobs:
       uses: classroom-resources/autograding-io-grader@v1
       with:
         test-name: Tests
-        setup-command: javac ./Exercises/Alumno.java ./Exercises/DataTypes.java ./Exercises/Hijo.java ./Exercises/Sobrecarga.java ./Exercises/Colecciones.java ./Exercises/EspirituSanto.java ./Exercises/Padre.java
+Exercises
+        setup-command: javac ./Exercises/*
+       setup-command: javac ./Exercises/Alumno.java ./Exercises/DataTypes.java ./Exercises/Hijo.java ./Exercises/Sobrecarga.java ./Exercises/Colecciones.java ./Exercises/EspirituSanto.java ./Exercises/Padre.java
+ main
         command: java Tests.java
         input: ''
         expected-output: 'true'
