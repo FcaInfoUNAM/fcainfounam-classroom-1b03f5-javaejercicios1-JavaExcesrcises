@@ -6,12 +6,13 @@ import java.util.HashMap;
 
 
 public class Colecciones {
+
     ArrayList<String> cars ;
     String[] bikes;
     Set<String> bicicles;
-    HashMap<Integer, String> transport;
+    public HashMap <Integer, String> transport;
 
-    public Colecciones(){
+    public Colecciones (){
         this.cars = new ArrayList<String>();
         this.bikes = new String[10];
         this.bicicles = new HashSet<String>();
@@ -38,10 +39,48 @@ public class Colecciones {
         this.bicicles.add("AURUMANIA CRYSTAL EDITION GOLD BIKE");
     }
 
-    public HashMap<Integer, String>  obtenerHash(){
-        int length = cars.size() + bikes.length + bicicles.size();// obtener tamaño
+    public HashMap <Integer, String>  obtenerHash(){
+
+        // int length = cars.size() + bikes.length + bicicles.size();// obtener tamaño
+
+        HashMap<Integer, String> result = new HashMap<>();
         int count =1;
+
+        // Agregar elementos de cars
+        for (String car : cars) {
+            if (car != null && !car.isEmpty() && !result.containsValue(car)) {
+                result.put(count++, car);
+            }
+        }
+
+        // Agregar elementos de bikes
+        for (String bike : bikes) {
+            if (bike != null && !bike.isEmpty() && !result.containsValue(bike)) {
+                result.put(count++, bike);
+            }
+        }
+
+        // Agregar elementos de bicicles
+        for (String bicycle : bicicles) {
+            if (bicycle != null && !bicycle.isEmpty() && !result.containsValue(bicycle)) {
+                result.put(count++, bicycle);
+            }
+        }
+
+        // Agregar elementos de transport
+        for (String value : transport.values()) {
+            if (value != null && !value.isEmpty() && !result.containsValue(value)) {
+                result.put(count++, value);
+            }
+        }
+        
+        // Asignar el valor de result a transport
+        this.transport = result;
+
         //this.transport.forEach((key, value) -> System.out.println(key + " " + value)); //imprimir para pruebas
+
         return this.transport;
+
     }
+
 }
